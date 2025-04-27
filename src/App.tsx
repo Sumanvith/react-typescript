@@ -1,39 +1,17 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState } from "react";
+import InputField from "./components/InputField";
 
-let name: string;
-let age: number | string;
-let isStudent: boolean;
-let hobbies: string[];
-let role: [number, string];
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>("");
 
-function printName(name: string) {
-  console.log(name);
-}
-
-let personName: unknown;
-
-printName("Hello");
-
-type Person1 = {
-  name_type: string;
-  age_type?: number;
+  return (
+    <div className="w-screen h-screen flex flex-col items-center bg-[#2f74c0]">
+      <span className="uppercase text-[40px] mx-0 my-8 text-white z-[1] text-center">
+        Taskify
+      </span>
+      <InputField todo={todo} setTodo={setTodo}></InputField>
+    </div>
+  );
 };
-
-interface Person2 extends Person1 {
-  name_int: string;
-  age_int?: number;
-}
-let person2: Person2 = {
-  name_type: "hello",
-  age_type: 3,
-  name_int: "bye",
-  age_int: 5,
-};
-
-function App() {
-  return <div className="App">Hello World</div>;
-}
 
 export default App;
